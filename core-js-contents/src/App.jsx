@@ -13,12 +13,11 @@ function App() {
   const Home = lazy(() => import("./components/Home"));
   const Call = lazy(() => import("./components/Call"));
   return (
-    <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <NavBar />
         <Routes>
-          <Route path="/" Component={Home} />
-          <Route path="/call" Component={Call} />
+          <Route path="/" element={<Home />} />
+          <Route path="/call" element={<Call />} />
         </Routes>
       </Suspense>
     </Router>
