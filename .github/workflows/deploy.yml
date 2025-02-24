@@ -1,4 +1,4 @@
-name: Deploy core-js-contents to GitHub Pages
+name: Deploy Multiple React Apps to GitHub Pages
 
 on:
   push:
@@ -18,17 +18,34 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Dependencies
+      # -------- Deploy core-js-contents App -------- #
+      - name: Install Dependencies for core-js-contents
         run: npm install
         working-directory: ./core-js-contents
 
-      - name: Build App
+      - name: Build core-js-contents
         run: npm run build
         working-directory: ./core-js-contents
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy core-js-contents to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./core-js-contents/dist
           destination_dir: core-js-contents
+
+      # -------- Deploy testimonials App -------- #
+      - name: Install Dependencies for testimonials
+        run: npm install
+        working-directory: ./testimonials
+
+      - name: Build testimonials
+        run: npm run build
+        working-directory: ./testimonials
+
+      - name: Deploy testimonials to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./testimonials/dist
+          destination_dir: testimonials
