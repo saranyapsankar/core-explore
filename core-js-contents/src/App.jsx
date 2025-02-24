@@ -13,6 +13,7 @@ function App() {
   const Home = lazy(() => import("./components/Home"));
   const Call = lazy(() => import("./components/Call"));
   return (
+    <Router basename="/core-explore/core-js-contents">
       <Suspense fallback={<div>Loading...</div>}>
         <NavBar />
         <Routes>
