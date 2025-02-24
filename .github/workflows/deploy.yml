@@ -35,17 +35,17 @@ jobs:
           destination_dir: core-js-contents
 
       # -------- Deploy testimonials App -------- #
-      - name: Install Dependencies for testimonials
+      - name: Install Dependencies for pricing-section-react
         run: npm install
-        working-directory: ./testimonials
+        working-directory: ./pricing-section-react
 
-      - name: Build testimonials
+      - name: Build pricing-section-react
         run: npm run build
-        working-directory: ./testimonials
+        working-directory: ./pricing-section-react
 
-      - name: Deploy testimonials to GitHub Pages
+      - name: Deploy pricing-section-react to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./testimonials/dist
-          destination_dir: testimonials
+          publish_dir: ./pricing-section-react/dist
+          destination_dir: pricing-section-react
